@@ -90,6 +90,11 @@ export default class FormField extends Component {
       </div>
     );
   }
+
+
+  shouldComponentUpdate() {
+    return false;
+  }
 }
 
 FormField.propTypes = {

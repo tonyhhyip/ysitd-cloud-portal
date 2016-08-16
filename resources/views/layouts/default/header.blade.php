@@ -22,7 +22,7 @@
             Profile
         </a>
     <li>
-        <a class="waves-effect" href="{{ url('/signout') }}">
+        <a class="waves-effect" href="{{ route('auth.signout') }}">
             <span class="material-icons material-icons-lg left">exit_to_app</span>
             Sign Out
         </a>

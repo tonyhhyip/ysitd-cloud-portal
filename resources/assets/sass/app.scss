@@ -17,6 +17,8 @@
 
 @import "all";
 
+@import "fa";
+
 
 // materialize
 @import "materialize/global";
@@ -26,25 +28,25 @@
 // @import "materialize/roboto";
 @import "materialize/typography";
 @import "materialize/cards";
-@import "materialize/toast";
-@import "materialize/tabs";
-@import "materialize/tooltip";
+// @import "materialize/toast";
+// @import "materialize/tabs";
+// @import "materialize/tooltip";
 @import "materialize/buttons";
 @import "materialize/dropdown";
 @import "materialize/waves";
-@import "materialize/modal";
+// @import "materialize/modal";
 @import "materialize/collapsible";
-@import "materialize/chips";
-@import "materialize/materialbox";
+// @import "materialize/chips";
+// @import "materialize/materialbox";
 @import "materialize/forms/forms";
-@import "materialize/table_of_contents";
+// @import "materialize/table_of_contents";
 @import "materialize/sideNav";
 @import "materialize/preloader";
-@import "materialize/slider";
-@import "materialize/carousel";
-@import "materialize/date_picker/default";
-@import "materialize/date_picker/default.date";
-@import "materialize/date_picker/default.time";
+// @import "materialize/slider";
+// @import "materialize/carousel";
+// @import "materialize/date_picker/default";
+// @import "materialize/date_picker/default.date";
+// @import "materialize/date_picker/default.time";
 
 @import "components/avatar";
 @import "components/loader";
@@ -53,6 +55,5 @@
 @import "components/icons";
 
 @import "layouts/text";
-@import "layouts/header";
 @import "layouts/nav";
 @import "layouts/footer";
