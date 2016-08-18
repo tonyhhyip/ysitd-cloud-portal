@@ -31,7 +31,7 @@ class IssueController extends Controller
             'title' => $request->input('title')
         ];
 
-        Issue::create($data)->save();
+        Issue::create($data);
         return redirect()->route('issue.index');
     }
 
