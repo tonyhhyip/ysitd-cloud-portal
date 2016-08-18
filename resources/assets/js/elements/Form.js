@@ -13,7 +13,6 @@ export default class Form extends Component {
   }
 
   render() {
-
     if (!('json' in this.props)) {
       return null;
     }
@@ -28,7 +27,6 @@ export default class Form extends Component {
         const ele = (
           <Field
             label={field.label}
-            color={field.color}
             value={field.value}
             type={field.type}
           />);
