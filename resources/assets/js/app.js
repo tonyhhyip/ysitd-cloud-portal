@@ -1,5 +1,6 @@
 'use strict';
 import './polyfill/Object';
+import './init';
 import {render} from 'react-dom';
 import './collapse';
 import Form from './elements/Form';
