@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> @yield('title') | YSITD Cloud Portal</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{ url('favicon.ico') }}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
     <link href="{{ url("/css/app.min.css") }}" rel="stylesheet" type="text/css">
