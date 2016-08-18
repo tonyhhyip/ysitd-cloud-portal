@@ -4,15 +4,15 @@
     "type": "text"
   },
   {
+    "label": "Telegram Username",
+    "type": "text"
+  },
+  {
     "label": "Name",
     "type": "text"
   },
   {
     "label": "Email Address",
     "type": "email"
-  },
-  {
-    "label": "Super User",
-    "type": "boolean"
   }
 ]

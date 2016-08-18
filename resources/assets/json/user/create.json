@@ -1,27 +1,18 @@
 [
   {
-    "label": "Github User ID",
-    "type": "integer",
-    "color": "accent"
-  },
-  {
     "label": "Github Username",
-    "type": "text",
-    "color": "accent"
+    "type": "text"
   },
   {
     "label": "Name",
-    "type": "text",
-    "color": "brand"
+    "type": "text"
   },
   {
     "label": "Email Address",
-    "type": "email",
-    "color": "brand"
+    "type": "email"
   },
   {
     "label": "Super User",
-    "type": "boolean",
-    "color": "orange"
+    "type": "boolean"
   }
 ]
