@@ -2551,6 +2551,20 @@ nav ul a span.badge {
   line-height: 22px;
   height: 22px; }
 
+.side-nav span.badge.new {
+  position: relative;
+  background-color: transparent; }
+  .side-nav span.badge.new::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    background-color: #5c6bc0;
+    border-radius: 2px;
+    z-index: -1; }
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -3230,7 +3244,7 @@ nav {
 .navbar-fixed {
   position: relative;
   height: 56px;
-  z-index: 998; }
+  z-index: 997; }
   .navbar-fixed nav {
     position: fixed; }
 
@@ -3487,6 +3501,7 @@ small {
     background-color: #fff;
     width: 100%;
     overflow-y: auto;
+    left: 0;
     top: 100%;
     height: 100%;
     z-index: 3;
@@ -4985,7 +5000,7 @@ input[type=range]:focus::-ms-fill-upper {
   right: 0;
   height: 120vh;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 998;
+  z-index: 997;
   will-change: opacity; }
 
 /*
