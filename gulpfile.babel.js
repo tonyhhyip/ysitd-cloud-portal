@@ -1,4 +1,4 @@
-import elixir, {config} from 'laravel-elixir';
+import {config} from 'laravel-elixir';
 config.json = {
   folder: 'json',
   outputFolder: 'json'
@@ -22,8 +22,3 @@ import './resources/gulp';
  |
  */
 
-elixir(function(mix) {
-  mix.image();
-  mix.copy(config.get('assets.json.folder'), config.get('public.json.outputFolder'));
-  mix.monitor();
-});

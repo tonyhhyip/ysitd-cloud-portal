@@ -1,7 +1,7 @@
 import {optimize} from 'webpack';
 import merge from 'webpack-merge';
 
-const {UglifyJsPlugin} = optimize;
+const {UglifyJsPlugin, DedupePlugin} = optimize;
 
 const baseConfig = {
   externals: {
@@ -22,14 +22,14 @@ const baseConfig = {
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
-    fallback: ['node_modules'],
+    fallback: [`${__dirname}/../../node_modules`],
     alias: {
       'images': 'public/images',
       'public': 'public'
     }
   },
   resolveLoader: {
-    fallback:['node_modules']
+    fallback: [`${__dirname}/../../node_modules`]
   },
   module: {
     loaders: [
@@ -62,7 +62,12 @@ const devConfig = merge(baseConfig, {
 });
 
 const proConfig = merge(baseConfig, {
-  plugins: [new UglifyJsPlugin({minimize: true})]
+  plugins: [
+    new UglifyJsPlugin({
+      minimize: true
+    }),
+    new DedupePlugin()
+  ]
 });
 
 export {devConfig, proConfig};
