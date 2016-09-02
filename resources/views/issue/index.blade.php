@@ -13,15 +13,12 @@
                             <span class="text-gray">#{{$issue->id}}</span>
                             {{ $issue->title }}
                         </a>
-                    @endforeach
+                        @endforeach
                 </div>
-                {!! $issues->render() !!}
             @else
-                <div class="card small">
-                    <div class="card-content">
-                        <span class="card-title">No issue is open.</span>
-                    </div>
-                </div>
+                <md-card class="small">
+                    <span slot="title">No issue is open.</span>
+                </md-card>
             @endif
         </div>
     </div>

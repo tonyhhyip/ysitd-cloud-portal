@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Issue\CreateRequest;
 use App\Models\Issue;
+use App\Models\IssueComment;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class IssueController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $issues = Issue::paginate(20);
+        $offset = intval($request->input('start', 0));
+        $issues = Issue::select(['id', 'title'])
+            ->offset(is_int($offset) ? $offset : 0)
+            ->take(10)
+            ->get();
         return view('issue/index', ['title' => 'Issue', 'issues' => $issues]);
     }
 
@@ -51,5 +56,15 @@ class IssueController extends Controller
                 return redirect()->route('issue.index');
             }
         }
+    }
+
+    public function listComment($issue)
+    {
+        $issue = intval($issue);
+        $comments = IssueComment::where('issue', $issue)
+            ->join('users', 'users.user_id', '=', 'issue_comments.user')
+            ->orderBy('created_at')
+            ->get(['user', 'display_name', 'content', 'issue_comments.created_at']);
+        return response()->json(['comments' => $comments]);
     }
 }

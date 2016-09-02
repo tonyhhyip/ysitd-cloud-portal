@@ -1,4 +1,3 @@
-import {config} from 'laravel-elixir';
 import gulp from 'gulp';
 
 

@@ -1,7 +1,9 @@
-import {optimize} from 'webpack';
+import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
+import DedupePlugin from 'webpack/lib/optimize/DedupePlugin';
+import CommonChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
 import merge from 'webpack-merge';
 
-const {UglifyJsPlugin, DedupePlugin} = optimize;
+const src = './resources/assets/js';
 
 const baseConfig = {
   externals: {
@@ -13,12 +15,14 @@ const baseConfig = {
     'vue-material-components': 'VueMaterialComponents'
   },
   entry: {
-    app: './resources/assets/js/app.js'
+    init: `${src}/init.js`,
+    app: `${src}/app.js`,
+    issue: `${src}/issue.js`
   },
   output: {
     path: 'public/js',
     publicPath: '/js',
-    filename: 'app.min.js'
+    filename: '[name].min.js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -57,8 +61,11 @@ const baseConfig = {
 
 const devConfig = merge(baseConfig, {
   output: {
-    filename: 'app.js'
-  }
+    filename: '[name].js',
+  },
+  plugins: [
+    new CommonChunkPlugin('init', 'common.js')
+  ]
 });
 
 const proConfig = merge(baseConfig, {
@@ -66,7 +73,8 @@ const proConfig = merge(baseConfig, {
     new UglifyJsPlugin({
       minimize: true
     }),
-    new DedupePlugin()
+    new DedupePlugin(),
+    new CommonChunkPlugin('init', 'common.min.js')
   ]
 });
 

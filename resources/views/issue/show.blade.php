@@ -3,19 +3,25 @@
 @section('content')
     <div class="row">
         <div class="col s24 m12">
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">
-                        {{ $issue->title }}
-                        <small class="text-gray">
+            <md-card>
+                <span slot="title">
+                    <user-icon size="medium" user="{{ $issue->user->user_id }}" type="inline"></user-icon>
+                    #{{ $issue->id  }}
+                    {{ $issue->title }}
+                    <small class="text-gray">
                             {{ $issue->user->display_name }}
-                        </small>
-                    </div>
-                    <div>
-                        {{ $issue->detail }}
-                    </div>
+                    </small>
+                </span>
+                <div>
+                    {{ $issue->detail }}
                 </div>
-            </div>
+            </md-card>
+            <issue-comments id="{{ $issue->id }}"></issue-comments>
+            <comment-field url="{{ route('issue.comment.post', ['issue' => $issue->id]) }}" token="{{ csrf_token() }}"></comment-field>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script defer src="{{ url('js/issue.min.js') }}"></script>
 @endsection

@@ -1,60 +1,12 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/js";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
+webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(1);
+	var _reactDom = __webpack_require__(1);
 
-	__webpack_require__(2);
-
-	var _reactDom = __webpack_require__(3);
-
-	__webpack_require__(4);
-
-	var _Form = __webpack_require__(5);
+	var _Form = __webpack_require__(2);
 
 	var _Form2 = _interopRequireDefault(_Form);
 
@@ -68,60 +20,10 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	if (typeof Object.assign != 'function') {
-	  Object.assign = function (target) {
-	    'use strict';
-
-	    if (target == null) {
-	      throw new TypeError('Cannot convert undefined or null to object');
-	    }
-
-	    target = Object(target);
-	    for (var index = 1; index < arguments.length; index++) {
-	      var source = arguments[index];
-	      if (source != null) {
-	        for (var key in source) {
-	          if (Object.prototype.hasOwnProperty.call(source, key)) {
-	            target[key] = source[key];
-	          }
-	        }
-	      }
-	    }
-	    return target;
-	  };
-	}
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	$(document.getElementsByClassName('button-collapse')).sideNav();
-	$(document.getElementsByClassName('dropdown-button')).dropdown();
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
 	module.exports = ReactDOM;
 
 /***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var route = location.pathname.replace(/^\//, '').split('/')[0];
-	var ele = document.getElementById('collapse-' + route);
-	if (ele && ele !== null) {
-	  $(ele).addClass('active');
-	}
-
-/***/ },
-/* 5 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -134,13 +36,13 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(6);
+	var _react = __webpack_require__(3);
 
-	var _classnames = __webpack_require__(7);
+	var _classnames = __webpack_require__(4);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _FormField = __webpack_require__(8);
+	var _FormField = __webpack_require__(5);
 
 	var _FormField2 = _interopRequireDefault(_FormField);
 
@@ -158,7 +60,7 @@
 	  function Form(props, context) {
 	    _classCallCheck(this, Form);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Form).call(this, props, context));
+	    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props, context));
 
 	    _this.state = {
 	      load: false,
@@ -231,19 +133,19 @@
 	exports.default = Form;
 
 /***/ },
-/* 6 */
+/* 3 */
 /***/ function(module, exports) {
 
 	module.exports = React;
 
 /***/ },
-/* 7 */
+/* 4 */
 /***/ function(module, exports) {
 
 	module.exports = classNames;
 
 /***/ },
-/* 8 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -256,9 +158,9 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(6);
+	var _react = __webpack_require__(3);
 
-	var _classnames = __webpack_require__(7);
+	var _classnames = __webpack_require__(4);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -281,7 +183,7 @@
 	  function FormField(props, context) {
 	    _classCallCheck(this, FormField);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FormField).call(this, props, context));
+	    var _this = _possibleConstructorReturn(this, (FormField.__proto__ || Object.getPrototypeOf(FormField)).call(this, props, context));
 
 	    _this.state = {
 	      value: !!_this.props.value
@@ -404,4 +306,4 @@
 	};
 
 /***/ }
-/******/ ]);
+]);

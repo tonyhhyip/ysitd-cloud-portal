@@ -35,7 +35,28 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
 
 });
 
-Route::resource('issue', 'IssueController');
+Route::resource('user', 'UserController', [
+    'only' => ['index', 'store', 'show', 'create']
+]);
+
+Route::get('user/{user}/icon', [
+    'as' => 'user.icon',
+    'uses' => 'UserController@icon'
+]);
+
+Route::resource('issue', 'IssueController', [
+    'only' => ['index', 'create', 'store', 'show']
+]);
+
+Route::get('issue/{issue}/comment', [
+    'as' => 'issue.comment.list',
+    'uses' => 'IssueController@listComment'
+]);
+
+Route::post('issue/{issue}/comment', [
+    'as' => 'issue.comment.post',
+    'uses' => 'IssueController@comment'
+]);
 
 Route::get('/', [
     'as' => 'home',

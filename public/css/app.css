@@ -3444,6 +3444,7 @@ small {
     .card.horizontal .card-image {
       max-width: 50%; }
       .card.horizontal .card-image img {
+        border-radius: 2px 0 0 2px;
         max-width: 100%;
         width: auto; }
     .card.horizontal .card-stacked {
@@ -3509,6 +3510,76 @@ small {
     .card .card-reveal .card-title {
       cursor: pointer;
       display: block; }
+
+.tabs {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  white-space: nowrap; }
+  .tabs.tabs-transparent {
+    background-color: transparent; }
+    .tabs.tabs-transparent .tab a,
+    .tabs.tabs-transparent .tab.disabled a,
+    .tabs.tabs-transparent .tab.disabled a:hover {
+      color: rgba(255, 255, 255, 0.7); }
+    .tabs.tabs-transparent .tab a:hover,
+    .tabs.tabs-transparent .tab a.active {
+      color: #fff; }
+    .tabs.tabs-transparent .indicator {
+      background-color: #fff; }
+  .tabs.tabs-fixed-width {
+    display: flex; }
+    .tabs.tabs-fixed-width .tab {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
+  .tabs .tab {
+    display: inline-block;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase; }
+    .tabs .tab a {
+      color: rgba(68, 161, 72, 0.7);
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0 24px;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transition: color .28s ease; }
+      .tabs .tab a:hover, .tabs .tab a.active {
+        background-color: transparent;
+        color: #44A148; }
+    .tabs .tab.disabled a,
+    .tabs .tab.disabled a:hover {
+      color: rgba(68, 161, 72, 0.7);
+      cursor: default; }
+  .tabs .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: #6fc273;
+    will-change: left, right; }
+
+@media only screen and (max-width: 992px) {
+  .tabs {
+    display: flex; }
+    .tabs .tab {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
+      .tabs .tab a {
+        padding: 0 12px; } }
 
 .btn, .btn-large,
 .btn-flat {
@@ -4171,6 +4242,13 @@ textarea.materialize-textarea {
 .input-field {
   position: relative;
   margin-top: 1rem; }
+  .input-field.inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px; }
+    .input-field.inline input,
+    .input-field.inline .select-dropdown {
+      margin-bottom: 1rem; }
   .input-field.col label {
     left: 0.75rem; }
   .input-field.col .prefix ~ label,
@@ -4180,6 +4258,7 @@ textarea.materialize-textarea {
     color: #9e9e9e;
     position: absolute;
     top: 0.8rem;
+    left: 0;
     font-size: 1rem;
     cursor: text;
     transition: .2s ease-out; }
