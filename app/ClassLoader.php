@@ -15,6 +15,12 @@ class ClassLoader extends ApcClassLoader
         $this->prefix = $prefix;
         if (!apcu_exists($prefix.'_class_load_total')) {
             apcu_store(['portal_class_load_miss' => 0, 'portal_class_load_total' => 0]);
+        } else {
+            $miss = apcu_fetch($prefix.'_class_load_miss');
+            if ($miss > (1 << 16)) {
+                apcu_dec($prefix.'_class_load_missed', 1 << 24);
+                apcu_dec($prefix.'_class_load_total', 1 << 24);
+            }
         }
     }
 
