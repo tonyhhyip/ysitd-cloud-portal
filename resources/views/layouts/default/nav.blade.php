@@ -1,9 +1,3 @@
-<div class="container">
-    <a href="#" data-activates="side-nav" class="button-collapse top-nav full hide-on-large-only">
-        <i class="material-icons material-icons-lg">menu</i>
-    </a>
-</div>
-
 <ul id="side-nav" class="side-nav fixed">
     <li class="logo">
         <a href="{{ route('home') }}" class="brand-logo">
@@ -12,7 +6,7 @@
     </li>
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
-            <li>
+            <li id="collapse-user">
                 <a class="collapsible-header waves-effect waves-teal">
                     <i class="fa fa-users fa-fw left"></i>
                     User
@@ -20,7 +14,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li>
-                            <a href="{{ url('user/list') }}" class="waves-effect box">
+                            <a href="{{ route('user.index') }}" class="waves-effect box">
                                 <i class="material-icons material-icons-lg left">view_list</i>
                                 List
                             </a>
@@ -34,7 +28,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+            <li id="collapse-user">
                 <a class="collapsible-header waves-effect waves-teal">
                     <i class="material-icons material-icons-lg left">shop_two</i>
                     Market
@@ -60,7 +54,7 @@
     </li>
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
-            <li>
+            <li id="collapse-doc">
                 <a class="collapsible-header waves-effect waves-teal">
                     <i class="material-icons material-icons-lg left">description</i>
                     Documentation

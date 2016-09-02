@@ -2,6 +2,13 @@
     <div class="container">
         <div class="nav-wrapper">
             <span class="page-title">@yield('title')</span>
+            <ul class="left">
+                <li>
+                    <a href="#" data-activates="side-nav" class="button-collapse top-nav full hide-on-large-only">
+                        <i class="material-icons material-icons-lg">menu</i>
+                    </a>
+                </li>
+            </ul>
             <ul class="right hide-on-med-and-down">
                 <li>
                     <a class="dropdown-button" href="#" data-activates="user-dropdown">
