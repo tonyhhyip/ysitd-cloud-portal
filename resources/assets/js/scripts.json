@@ -1,0 +1,60 @@
+{
+  "jquery": {
+    "src": "cdnjs://jquery:2.2.4@jquery"
+  },
+  "react": {
+    "src": [
+      "cdnjs://react:15.3.1@react",
+      "cdnjs://react:15.3.1@react-dom"
+    ]
+  },
+  "materialize": {
+    "src": "cdnjs://materialize:0.97.7@js/materialize"
+  },
+  "classnames": {
+    "src": [
+      "cdnjs:classnames:2.2.5@dedupe"
+    ]
+  },
+  "vue": {
+    "src": "cdnjs://vue:1.0.26@vue"
+  },
+  "vue-material": {
+    "src": "cdnjs://vue-material-components:0.3.4@vue-material-components",
+    "depends": "vue"
+  },
+  "vue-resource": {
+    "src": "cdnjs://vue-resource:1.0.0@vue-resource.min.js",
+    "depends": "vue"
+  },
+  "vuex": {
+    "src": "cdnjs://vuex:0.8.2@vuex",
+    "depends": "vue"
+  },
+  "marked": {
+    "src": "cdnjs://marked:0.3.6@marked"
+  },
+  "common": {
+    "src": "host://common",
+    "depends": "vue-material"
+  },
+  "app": {
+    "src": "host://app",
+    "depends": [
+      "jquery",
+      "react",
+      "classnames",
+      "common"
+    ]
+  },
+  "issue": {
+    "src": "host://issue",
+    "depends": [
+      "vue-material",
+      "vuex",
+      "vue-resource",
+      "marked",
+      "common"
+    ]
+  }
+}
