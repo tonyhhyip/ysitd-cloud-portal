@@ -33,8 +33,7 @@ abstract class AbstractPresenter implements Presenter
      */
     public function addLoader(Loader $loader, $prepend = false)
     {
-        $func = $prepend ? 'array_unshift' : 'array_push';
-        call_user_func($func, $this->loaders, $loader);
+       $prepend ? array_unshift($this->loaders, $loader) : array_push($this->loaders, $loader);
     }
 
     /**

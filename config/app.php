@@ -154,6 +154,8 @@ return [
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        \App\Providers\ScriptChainRenderProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -211,7 +213,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+        'SSE'       => Sse\Laravel\Facade\SSE::class
     ],
 
 ];
