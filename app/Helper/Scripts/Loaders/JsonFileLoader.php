@@ -15,27 +15,13 @@ class JsonFileLoader extends AbstractLoader
     /**
      * @var string
      */
-    private $cachePath;
-
-    /**
-     * @var string
-     */
     private $appPath;
-
-    /**
-     * @var bool
-     */
-    private $cacheLoaded = false;
 
     /**
      * @var bool
      */
     private $dataLoaded = false;
 
-    /**
-     * @var array
-     */
-    private $cache = [];
 
     /**
      * @var array
@@ -45,7 +31,6 @@ class JsonFileLoader extends AbstractLoader
     public function __construct(Filesystem $file)
     {
         $this->file = $file;
-        $this->cachePath = storage_path('app/scripts.json');
         $this->appPath = resource_path('assets/js/scripts.json');
     }
 
@@ -54,46 +39,36 @@ class JsonFileLoader extends AbstractLoader
      */
     protected function find($script)
     {
-        $this->init();
-        if (Arr::has($this->cache, $script)) {
-            return $this->cache[$script];
-        } else {
-            if (!$this->dataLoaded) {
-                $this->loadData();
-            }
-
-            $scripts = [];
-            $todo = [$script];
-            while (count($todo) !== 0) {
-                $load = array_shift($todo);
-                $data = $this->data[$load];
-                $source = $data['src'];
-                $source = is_array($source) ? $source : [$source];
-                $scripts = array_merge($scripts, $source);
-
-                if (isset($data['depends'])) {
-                    $depends = $data['depends'];
-                    $depends = is_array($depends) ? $depends : [$depends];
-                    $todo = array_merge($todo, $depends);
-                }
-            }
-
-            $scripts = $this->processArray($scripts);
-            $this->saveToCache($script, $scripts);
-            return $scripts;
+        if (!$this->dataLoaded) {
+            $this->loadData();
         }
+
+        $scripts = [];
+        $todo = [$script];
+        while (count($todo) !== 0) {
+            $load = array_shift($todo);
+            $data = $this->data[$load];
+            $source = $data['src'];
+            $source = is_array($source) ? $source : [$source];
+            $scripts = array_merge($scripts, $source);
+
+            if (isset($data['depends'])) {
+                $depends = $data['depends'];
+                $depends = is_array($depends) ? $depends : [$depends];
+                $todo = array_merge($todo, $depends);
+            }
+
+        }
+
+        $scripts = $this->processArray($scripts);
+        return $scripts;
     }
-    
+
     /**
      * @inheritdoc
      */
     public function know($script)
     {
-        $this->init();
-        if (Arr::has($this->cache, $script)) {
-            return true;
-        }
-
         if (!$this->dataLoaded) {
             $this->loadData();
         }
@@ -107,32 +82,6 @@ class JsonFileLoader extends AbstractLoader
         }, array_unique(array_reverse($scripts)));
     }
 
-    private function saveToCache($script, array $url)
-    {
-        $this->cache[$script] = $url;
-        $this->file->put($this->cachePath, json_encode($this->cache));
-    }
-
-    /**
-     * @return void
-     */
-    private function init()
-    {
-        if (!$this->isExpire() && !$this->cacheLoaded) {
-            $this->loadCache();
-        }
-    }
-
-    /**
-     * @return void
-     */
-    private function loadCache()
-    {
-        $content = $this->file->get($this->cachePath);
-        $this->cache = json_decode($content, true);
-        $this->cacheLoaded = true;
-    }
-
     /**
      * @return void
      */
@@ -143,20 +92,6 @@ class JsonFileLoader extends AbstractLoader
         $this->dataLoaded = true;
     }
 
-
-    /**
-     * @return bool
-     */
-    private function isExpire()
-    {
-        if (!$this->file->exists($this->cachePath)) {
-            return true;
-        }
-        $cache = $this->file->lastModified($this->cachePath);
-        $scripts = $this->file->lastModified($this->appPath);
-        return $cache >= $scripts;
-    }
-
     /**
      * @param string $path
      *
@@ -164,7 +99,7 @@ class JsonFileLoader extends AbstractLoader
      */
     private function resolveUrl($path)
     {
-        $regexp = '/(?<protocol>(?:[0-9]|[a-z])+)(?::\/\/)(?<library>(?:[0-9]|[a-z]|[\-])+)(?:(?::)(?<version>(?:[0-9]|[\.])+)(?:@)(?<file>(?:[0-9]|[a-z]|[\-\.])+))?/i';
+        $regexp = '/(?<protocol>(?:[0-9]|[a-z])+)(?::\/\/)(?<library>(?:[0-9]|[a-z]|[\-])+)(?:(?::)(?<version>(?:[0-9]|[\.])+)(?:@)(?<file>(?:[0-9]|[a-z]|[\-\/\.])+))?/i';
         if (!preg_match($regexp, $path, $match)) {
             throw new \InvalidArgumentException("{$path} cannot be matched");
         }
@@ -202,5 +137,5 @@ class JsonFileLoader extends AbstractLoader
     {
         return url(sprintf("js/%s.min.js", $data['library']));
     }
-    
+
 }

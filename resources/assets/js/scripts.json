@@ -3,17 +3,19 @@
     "src": "cdnjs://jquery:2.2.4@jquery"
   },
   "react": {
-    "src": [
-      "cdnjs://react:15.3.1@react",
-      "cdnjs://react:15.3.1@react-dom"
-    ]
+    "src": "cdnjs://react:15.3.1@react"
+  },
+  "react-dom": {
+    "src": "cdnjs://react:15.3.1@react-dom",
+    "depends": "react"
   },
   "materialize": {
-    "src": "cdnjs://materialize:0.97.7@js/materialize"
+    "src": "cdnjs://materialize:0.97.7@js/materialize",
+    "depends": "jquery"
   },
   "classnames": {
     "src": [
-      "cdnjs:classnames:2.2.5@dedupe"
+      "cdnjs://classnames:2.2.5@dedupe"
     ]
   },
   "vue": {
@@ -24,7 +26,7 @@
     "depends": "vue"
   },
   "vue-resource": {
-    "src": "cdnjs://vue-resource:1.0.0@vue-resource.min.js",
+    "src": "cdnjs://vue-resource:1.0.0@vue-resource",
     "depends": "vue"
   },
   "vuex": {
@@ -36,13 +38,16 @@
   },
   "common": {
     "src": "host://common",
-    "depends": "vue-material"
+    "depends": [
+      "vue-material",
+      "materialize"
+    ]
   },
   "app": {
     "src": "host://app",
     "depends": [
       "jquery",
-      "react",
+      "react-dom",
       "classnames",
       "common"
     ]

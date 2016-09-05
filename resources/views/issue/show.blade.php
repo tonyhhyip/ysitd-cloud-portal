@@ -23,5 +23,5 @@
 @endsection
 
 @section('scripts')
-    <script defer src="{{ url('js/issue.min.js') }}"></script>
+    {!! $scripts->provide('issue') !!}
 @endsection

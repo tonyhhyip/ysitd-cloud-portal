@@ -39,7 +39,7 @@ abstract class AbstractPresenter implements Presenter
     /**
      * @inheritdoc
      */
-    final public function renderRequired($scripts)
+    final public function provide($scripts)
     {
         if (!is_array($scripts)) {
             $scripts = [$scripts];
@@ -70,8 +70,9 @@ abstract class AbstractPresenter implements Presenter
     private function resolveRequired(array $scripts)
     {
         $buffer = [];
-        foreach ($scripts as $script)
+        foreach ($scripts as $script) {
             $buffer = array_merge($buffer, $this->resolveScript($script));
+        }
         $this->scripts = array_unique($buffer);
     }
 

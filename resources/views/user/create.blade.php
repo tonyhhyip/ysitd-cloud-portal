@@ -18,3 +18,7 @@
         </form>
     </div>
 @endsection
+
+@section('scripts')
+    {!! $scripts->provide('app') !!}
+@endsection

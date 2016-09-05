@@ -18,6 +18,11 @@ class CacheLoader extends AbstractLoader
     private $loader;
 
     /**
+     * @var string
+     */
+    private $prefix = 'scripts:';
+
+    /**
      * CacheLoader constructor.
      *
      * @param Repository $cache
@@ -37,7 +42,7 @@ class CacheLoader extends AbstractLoader
         if ($this->cache->has($script))
             return true;
 
-        return $this->loader->has($script);
+        return $this->loader->know($script);
     }
 
     /**
@@ -45,8 +50,10 @@ class CacheLoader extends AbstractLoader
      */
     public function find($script)
     {
-        if (!$this->cache->has($script)) {
-            return $this->loader->find($script);
+        if (!$this->cache->has($this->prefix . $script)) {
+            $result = $this->loader->find($script);
+            $this->cache->put($this->prefix.$script, $result);
+            return $result;
         }
 
         return $this->cache->get($script);

@@ -9,7 +9,7 @@ interface Presenter
      *
      * @return string
      */
-    public function renderRequired($scripts);
+    public function provide($scripts);
 
     /**
      * Add Loaders for Presenter
