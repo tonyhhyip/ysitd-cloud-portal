@@ -1,12 +1,11 @@
 <?php
 
-namespace Test;
+namespace Tests;
 
 use App\Models\User;
 use Ramsey\Uuid\Uuid;
-use TestCase;
 
-class HomeControllerTest extends TestCase
+class HomeControllerTest extends \TestCase
 {
     private $user;
 
@@ -27,7 +26,7 @@ class HomeControllerTest extends TestCase
     {
         $this->actingAs($this->user)
             ->visit('/user/create')
-            ->see('User Create')
+            ->see('Create User')
             ->see('Submit');
         $this->checkLayout();
     }
