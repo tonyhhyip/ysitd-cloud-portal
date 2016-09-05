@@ -52,10 +52,10 @@ class DeferScriptPresenterTest extends \TestCase
         $this->assertTrue(Str::contains($result, static::VUE_SRC));
     }
 
-    public function testRenderRequired()
+    public function testProvide()
     {
         $instance = $this->app->make(DeferScriptPresenter::class);
-        $result = $instance->renderRequired('vue');
+        $result = $instance->provide('vue');
         $this->assertTrue(Str::contains($result, static::VUE_SRC));
     }
 }
