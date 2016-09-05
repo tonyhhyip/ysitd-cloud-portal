@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helper\Scripts\Loader;
 use App\Helper\Scripts\Presenters\DeferScriptPresenter;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\Auth;
@@ -13,12 +14,11 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
-     * @param DeferScriptPresenter $presenter
      * @return void
      */
-    public function boot(DeferScriptPresenter $presenter)
+    public function boot()
     {
-        $this->bootViewer($presenter);
+        $this->bootViewer();
         if (config('app.verbose')) {
             $this->bindDBDebugListener();
         }
@@ -36,12 +36,14 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bind variables to view
-     * @param DeferScriptPresenter $presenter
      */
-    protected function bootViewer(DeferScriptPresenter $presenter)
+    private function bootViewer()
     {
-        view()->composer('*', function ($view) use ($presenter) {
+        view()->composer('*', function ($view) {
             $view->with('user', Auth::user());
+            $presenter = $this->app[DeferScriptPresenter::class];
+            $loader = $this->app->make(Loader::class);
+            $presenter->addLoader($loader);
             $view->with('scripts', $presenter);
         });
     }
