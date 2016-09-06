@@ -7,7 +7,6 @@ use App\Auth\Permission\Models\Role;
 
 trait HasRole
 {
-    use Cacheable;
     use HasPermissions;
 
     /**

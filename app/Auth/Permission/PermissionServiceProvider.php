@@ -33,7 +33,7 @@ class PermissionServiceProvider extends ServiceProvider
     private function loadPermission(Repository $cache)
     {
         return $cache->rememberForever('permission.cache', function () {
-            return (new Permission())->with('roles')->get();
+            return Permission::with('roles')->get();
         });
     }
     

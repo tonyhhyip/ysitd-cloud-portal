@@ -3,7 +3,6 @@
 namespace App\Auth\Permission\Models;
 
 use App\Auth\Permission\Exception\RoleNotExistsException;
-use App\Models\Traits\Cacheable;
 use App\Models\Traits\FindByName;
 use App\Models\Traits\HasPermissions;
 use App\Models\User;
@@ -13,7 +12,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class Role extends Model
 {
     use FindByName;
-    use Cacheable;
     use HasPermissions;
 
     public $incrementing = false;
