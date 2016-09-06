@@ -12,7 +12,9 @@ const baseConfig = {
     'classnames': 'classNames',
     'vue': 'Vue',
     'vue-resource': 'VueResource',
-    'vue-material-components': 'VueMaterialComponents'
+    'vue-material-components': 'VueMaterialComponents',
+    'vuex': 'Vuex',
+    'marked': 'marked'
   },
   entry: {
     init: `${src}/init.js`,
@@ -75,7 +77,8 @@ const proConfig = merge(baseConfig, {
     }),
     new DedupePlugin(),
     new CommonChunkPlugin('init', 'common.min.js')
-  ]
+  ],
+  devtool: 'source-map'
 });
 
 export {devConfig, proConfig};

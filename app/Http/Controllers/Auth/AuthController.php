@@ -76,7 +76,9 @@ class AuthController extends Controller
     public function signout()
     {
         $this->auth->logout();
-        return redirect()->route('home');
+        $response =  redirect()->route('home');
+        $response->headers->clearCookie('USER');
+        return $response;
     }
 
 }
