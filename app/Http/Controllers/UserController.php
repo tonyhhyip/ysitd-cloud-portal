@@ -42,7 +42,10 @@ class UserController extends Controller
     public function show($user)
     {
         try {
-            $user = User::findOrFail($user);
+            if (!Uuid::isValid($user)) {
+                abort(422);
+            }
+            $user = User::with('roles')->with('permissions')->findOrFail($user);
             return view('user/show', ['theUser' => $user]);
         } catch (ModelNotFoundException $e) {
             abort(404);
