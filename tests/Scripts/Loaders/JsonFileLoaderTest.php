@@ -14,7 +14,6 @@ class JsonFileLoaderTest extends \TestCase
         $storage = File::getFacadeRoot();
         $instance = new JsonFileLoader($storage);
         $this->assertInstanceOf(JsonFileLoader::class, $instance);
-        $this->assertAttributeEquals(storage_path('app/scripts.json'), 'cachePath', $instance);
         $this->assertAttributeEquals(resource_path('assets/js/scripts.json'), 'appPath', $instance);
         $this->assertAttributeEquals($storage, 'file', $instance);
     }
