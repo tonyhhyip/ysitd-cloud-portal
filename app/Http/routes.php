@@ -35,14 +35,14 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
 
 });
 
-Route::resource('user', 'UserController', [
-    'only' => ['index', 'store', 'show', 'create']
-]);
+Route::resource('user', 'UserController');
 
 Route::get('user/{user}/icon', [
     'as' => 'user.icon',
     'uses' => 'UserController@icon'
 ]);
+
+Route::resource('permission', 'Auth\PermissionController');
 
 Route::resource('issue', 'IssueController', [
     'only' => ['index', 'create', 'store', 'show']
