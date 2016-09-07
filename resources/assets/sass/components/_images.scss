@@ -1,0 +1,22 @@
+@mixin image-height($height) {
+  max-height: $height !important;
+  width: auto !important;
+}
+
+@mixin image-width($width) {
+  max-width: $width !important;
+}
+
+img.i500w {
+  @include image-width(500px);
+  @include img-responsive();
+}
+
+img.i300w {
+  @include image-width(300px);
+  @include img-responsive();
+}
+
+img.i300h {
+  @include image-height(300px);
+}
