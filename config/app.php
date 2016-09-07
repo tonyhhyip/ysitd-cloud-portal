@@ -155,6 +155,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
 
         \App\Providers\ScriptChainRenderProvider::class,
+        \App\Auth\Permission\PermissionServiceProvider::class,
 
         /*
          * Application Service Providers...
