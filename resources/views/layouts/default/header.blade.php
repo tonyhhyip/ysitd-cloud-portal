@@ -24,7 +24,7 @@
 
 <ul id="user-dropdown" class="dropdown-content">
     <li>
-        <a href="{{ url('/user/profile') }}" class="waves-effect">
+        <a href="{{ route('user.show', ['user' => $user->user_id]) }}" class="waves-effect">
             <i class="material-icons left">account_box</i>
             Profile
         </a>

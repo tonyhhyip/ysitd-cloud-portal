@@ -9,20 +9,26 @@
             <li>
                 <a class="collapsible-header waves-effect waves-teal">
                     <i class="fa fa-users fa-fw left"></i>
-                    User
+                    Account
                 </a>
                 <div class="collapsible-body">
                     <ul>
                         <li>
-                            <a href="{{ url('user/list') }}" class="waves-effect box">
-                                <i class="material-icons material-icons-lg left">view_list</i>
-                                List
+                            <a href="{{ route('user.index') }}" class="waves-effect box">
+                                <i class="material-icons material-icons-lg left">face</i>
+                                User
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('view', 'user/create') }}">
-                                <i class="fa fa-user-plus fa-fw left"></i>
-                                Create
+                            <a href="{{ url('role') }}" class="waves-effect box">
+                                <i class="material-icons material-icons-lg left">supervisor_account</i>
+                                Role
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('permission') }}" class="waves-effect box">
+                                <i class="material-icons material-icons-lg left">done</i>
+                                Permission
                             </a>
                         </li>
                     </ul>

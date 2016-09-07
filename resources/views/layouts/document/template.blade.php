@@ -1,3 +1,4 @@
+@section('title'){{ $title or '' }}@endsection
 <!doctype html>
 <html lang="en-GB">
 <head>
@@ -29,6 +30,6 @@
 @include('layouts/document/footer')
 @section('scripts')
     {!! $scripts->provide('common') !!}
-@endsection
+@show
 </body>
 </html>

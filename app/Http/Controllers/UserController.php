@@ -46,7 +46,8 @@ class UserController extends Controller
                 abort(422);
             }
             $user = User::with('roles')->with('permissions')->findOrFail($user);
-            return view('user/show', ['theUser' => $user]);
+            $title = "User: " . $user->display_name;
+            return view('user/show', ['theUser' => $user, 'title' => $title]);
         } catch (ModelNotFoundException $e) {
             abort(404);
         }
