@@ -154,6 +154,10 @@ return [
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+
+        /*
+         * Local Service Provider
+         */
         \App\Providers\ScriptChainRenderProvider::class,
 
         /*

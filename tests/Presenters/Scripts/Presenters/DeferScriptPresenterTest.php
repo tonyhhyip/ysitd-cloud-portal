@@ -2,9 +2,8 @@
 
 namespace Tests\Scripts\Presenters;
 
-
-use App\Helper\Scripts\Loader;
-use App\Helper\Scripts\Presenters\DeferScriptPresenter;
+use App\Presenters\Scripts\Loader;
+use App\Presenters\Scripts\Presenters\DeferScriptPresenter;
 use Illuminate\Support\Str;
 
 class DeferScriptPresenterTest extends \TestCase

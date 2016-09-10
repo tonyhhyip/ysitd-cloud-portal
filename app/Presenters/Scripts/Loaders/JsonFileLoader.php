@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper\Scripts\Loaders;
+namespace App\Presenters\Scripts\Loaders;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 class JsonFileLoader extends AbstractLoader
 {
     /**
-     * @var \Illuminate\Contracts\Filesystem\Filesystem
+     * @var Filesystem
      */
     private $file;
 

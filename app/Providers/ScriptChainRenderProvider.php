@@ -2,15 +2,12 @@
 
 namespace App\Providers;
 
-use App\Helper\Scripts\Loader;
-use App\Helper\Scripts\Loaders\CacheLoader;
-use App\Helper\Scripts\Loaders\JsonFileLoader;
-use App\Helper\Scripts\Presenter;
-use App\Helper\Scripts\Presenters\DeferScriptPresenter;
-use App\Helper\Scripts\Presenters\ScriptPresenter;
-use Illuminate\Cache\Repository;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Foundation\Application;
+use App\Presenters\Scripts\Loader;
+use App\Presenters\Scripts\Loaders\CacheLoader;
+use App\Presenters\Scripts\Loaders\JsonFileLoader;
+use App\Presenters\Scripts\Presenter;
+use App\Presenters\Scripts\Presenters\DeferScriptPresenter;
+use App\Presenters\Scripts\Presenters\ScriptPresenter;
 use Illuminate\Support\ServiceProvider;
 
 class ScriptChainRenderProvider extends ServiceProvider
@@ -19,18 +16,11 @@ class ScriptChainRenderProvider extends ServiceProvider
 
     public function register()
     {
-
-        $this->app->singleton(JsonFileLoader::class, function () {
-            $file = $this->app->make(Filesystem::class);
-            return new JsonFileLoader($file);
-        });
-
-        $this->app->singleton(CacheLoader::class, function () {
-            $loader = $this->app->make(JsonFileLoader::class);
-            return new CacheLoader($this->app->make(Repository::class), $loader);
-        });
-
         $this->app->bind(Loader::class, CacheLoader::class);
+
+        $this->app->when(CacheLoader::class)
+            ->needs(Loader::class)
+            ->give(JsonFileLoader::class);
 
         $this->app->bind(Presenter::class, function () {
             $loader = $this->app->make(Loader::class);
@@ -51,8 +41,8 @@ class ScriptChainRenderProvider extends ServiceProvider
     public function provides()
     {
         return [
-            Loader::class, Presenter::class, DeferScriptPresenter::class, JsonFileLoader::class,
-            'script.presenter.defer'
+            Loader::class, Presenter::class,
+            DeferScriptPresenter::class, JsonFileLoader::class,
         ];
     }
 }

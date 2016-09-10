@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Helper\Scripts\Presenters;
+namespace App\Presenters\Scripts\Presenters;
 
-use App\Helper\Scripts\Presenter;
-use App\Helper\Scripts\Loader;
+use App\Presenters\Scripts\Presenter;
+use App\Presenters\Scripts\Loader;
 
 abstract class AbstractPresenter implements Presenter
 {

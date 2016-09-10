@@ -27,6 +27,7 @@
     </div>
 </main>
 @include('layouts/document/footer')
+@inject('scripts', '\App\Presenters\Scripts\Presenters\DeferScriptPresenter')
 @section('scripts')
     {!! $scripts->provide('common') !!}
 @endsection
