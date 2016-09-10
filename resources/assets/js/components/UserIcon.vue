@@ -6,7 +6,7 @@
     export default{
         data() {
             return {
-                src: `/user/${this.user}/icon`,
+                src: `/account/user/${this.user}/icon`,
                 display: this.type === 'inline' ? 'inline-block' : 'block'
             }
         },
