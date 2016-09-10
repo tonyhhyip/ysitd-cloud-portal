@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\Scripts\Presenters\DeferScriptPresenter;
+use App\Presenters\Scripts\Presenters\DeferScriptPresenter;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -39,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view) {
             $view->with('user', auth()->user());
+            $view->with('scripts', app(DeferScriptPresenter::class));
         });
     }
 

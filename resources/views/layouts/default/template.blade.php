@@ -1,5 +1,5 @@
 @section('title', isset($title) ? $title : 'Dashboard')
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
@@ -18,12 +18,12 @@
 </head>
 <body id="vue-root">
 <header>
-@include('layouts/default/header')
-@include('layouts/default/nav')
+    @include('layouts/default/header')
+    @include('layouts/default/nav')
 </header>
 <main>
     <div class="container">
-    @yield('content')
+        @yield('content')
     </div>
 </main>
 @include('layouts/default/footer')
