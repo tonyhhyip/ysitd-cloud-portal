@@ -19,7 +19,8 @@ const baseConfig = {
   entry: {
     init: `${src}/init.js`,
     app: `${src}/app.js`,
-    issue: `${src}/issue.js`
+    issue: `${src}/issue.js`,
+    permission: `${src}/permission.js`
   },
   output: {
     path: 'public/js',
