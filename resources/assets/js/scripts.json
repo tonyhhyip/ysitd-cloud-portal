@@ -55,10 +55,16 @@
   "issue": {
     "src": "host://issue",
     "depends": [
-      "vue-material",
       "vuex",
       "vue-resource",
       "marked",
+      "common"
+    ]
+  },
+  "permission": {
+    "src": "host://permission",
+    "depends": [
+      "vue-resource",
       "common"
     ]
   }
