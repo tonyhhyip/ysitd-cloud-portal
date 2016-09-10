@@ -6,7 +6,7 @@
     </li>
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
-            <li id="collapse-user">
+            <li id="collapse-account">
                 <a class="collapsible-header waves-effect waves-teal">
                     <i class="fa fa-users fa-fw left"></i>
                     Account
@@ -14,19 +14,19 @@
                 <div class="collapsible-body">
                     <ul>
                         <li>
-                            <a href="{{ route('user.index') }}" class="waves-effect box">
+                            <a href="{{ route('account.user.index') }}" class="waves-effect box">
                                 <i class="material-icons material-icons-lg left">face</i>
                                 User
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('role') }}" class="waves-effect box">
+                            <a href="{{ url('account/role') }}" class="waves-effect box">
                                 <i class="material-icons material-icons-lg left">supervisor_account</i>
                                 Role
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('permission') }}" class="waves-effect box">
+                            <a href="{{ route('account.permission.index') }}" class="waves-effect box">
                                 <i class="material-icons material-icons-lg left">done</i>
                                 Permission
                             </a>
