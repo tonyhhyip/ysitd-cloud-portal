@@ -12,3 +12,4 @@ if (ele && ele !== null) {
 
 $(document.getElementsByClassName('button-collapse')).sideNav();
 $(document.getElementsByClassName('dropdown-button')).dropdown();
+$(document.getElementsByClassName('materialboxed')).materialbox();
