@@ -29,10 +29,10 @@
                 </div>
                 @if($user->root)
                 <div class="card-action">
-                    <a class="btn" href="{{ route('user.edit', ['user' => $theUser->user_id]) }}">
+                    <a class="btn" href="{{ route('account.user.edit', ['user' => $theUser->user_id]) }}">
                         Edit
                     </a>
-                    <a href="{{ route('user.destroy', ['user' => $theUser->user_id]) }}" class="btn">
+                    <a href="{{ route('account.user.destroy', ['user' => $theUser->user_id]) }}" class="btn">
                         Delete
                     </a>
                 </div>
@@ -83,8 +83,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    {!! $scripts->provide('common')  !!}
 @endsection

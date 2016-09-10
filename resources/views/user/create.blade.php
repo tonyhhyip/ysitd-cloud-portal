@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <form action="{{ url('/user/create') }}" method="post" class="col s12">
+        <form action="{{ route('account.user.store') }}" method="post" class="col s12">
             <div class="row">
                 {{ csrf_field() }}
                 <div data-form-element data-form="user.create"></div>

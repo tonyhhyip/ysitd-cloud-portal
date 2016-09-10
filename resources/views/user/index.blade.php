@@ -3,13 +3,13 @@
 @section('content')
     <div class="row">
         <div class="row">
-            <a class="btn" href="{{ route('view', ['view' => 'user/create']) }}">Create new user</a>
+            <a class="btn" href="{{ route('account.user.create') }}">Create new user</a>
         </div>
         <div class="col s12 m9 l10">
             @if(count($users))
                 <div class="collection">
-                    @forelse($users as $user)
-                        <a class="collection-item waves-effect" href="{{ route('user.show', ['user' => $user->user_id]) }}">
+                    @forelse($user<a href="{{ route('account.permission.create') }}" class="btn">Create New Permission</a>s as $user)
+                        <a class="collection-item waves-effect" href="{{ route('account.user.show', ['user' => $user->user_id]) }}">
                             {{ $user->display_name }}
                         </a>
                         @endforeach
