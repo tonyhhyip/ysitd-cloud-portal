@@ -2,10 +2,9 @@
 
 namespace Tests\Scripts;
 
-
-use App\Helper\Scripts\Loader;
-use App\Helper\Scripts\Presenter;
-use App\Helper\Scripts\Presenters\DeferScriptPresenter;
+use App\Presenters\Scripts\Loader;
+use App\Presenters\Scripts\Presenter;
+use App\Presenters\Scripts\Presenters\DeferScriptPresenter;
 
 class ScriptChainRenderProviderTest extends \TestCase
 {

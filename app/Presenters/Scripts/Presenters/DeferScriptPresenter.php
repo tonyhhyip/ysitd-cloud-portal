@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper\Scripts\Presenters;
+namespace App\Presenters\Scripts\Presenters;
 
 class DeferScriptPresenter extends AbstractPresenter
 {

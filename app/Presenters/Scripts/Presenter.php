@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper\Scripts;
+namespace App\Presenters\Scripts;
 
 interface Presenter
 {

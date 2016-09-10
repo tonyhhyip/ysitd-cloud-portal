@@ -2,7 +2,7 @@
 
 namespace Tests\Scripts\Loaders;
 
-use App\Helper\Scripts\Loaders\JsonFileLoader;
+use App\Presenters\Scripts\Loaders\JsonFileLoader;
 use Illuminate\Support\Facades\File;
 
 class JsonFileLoaderTest extends \TestCase

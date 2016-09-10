@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Helper\Scripts\Loaders;
+namespace App\Presenters\Scripts\Loaders;
 
-use App\Helper\Scripts\Loader;
+use App\Presenters\Scripts\Loader;
 
 abstract class AbstractLoader implements Loader
 {

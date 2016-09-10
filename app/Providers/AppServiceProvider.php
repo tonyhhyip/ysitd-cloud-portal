@@ -2,10 +2,8 @@
 
 namespace App\Providers;
 
-use App\Helper\Scripts\Loader;
-use App\Helper\Scripts\Presenters\DeferScriptPresenter;
+use App\Services\Scripts\Presenters\DeferScriptPresenter;
 use Illuminate\Database\Events\QueryExecuted;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
@@ -40,11 +38,7 @@ class AppServiceProvider extends ServiceProvider
     private function bootViewer()
     {
         view()->composer('*', function ($view) {
-            $view->with('user', Auth::user());
-            $presenter = $this->app[DeferScriptPresenter::class];
-            $loader = $this->app->make(Loader::class);
-            $presenter->addLoader($loader);
-            $view->with('scripts', $presenter);
+            $view->with('user', auth()->user());
         });
     }
 
