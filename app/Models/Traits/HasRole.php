@@ -141,7 +141,7 @@ trait HasRole
     public function hasPermissionTo($permission)
     {
         if (is_string($permission)) {
-            $permission = app(Permission::class)->findByName($permission);
+            $permission = Permission::findByName($permission);
         }
         return $this->hasDirectPermission($permission) || $this->hasPermissionViaRole($permission);
     }
@@ -168,7 +168,7 @@ trait HasRole
     protected function hasDirectPermission($permission)
     {
         if (is_string($permission)) {
-            $permission = app(Permission::class)->findByName($permission);
+            $permission = Permission::findByName($permission);
             if (!$permission) {
                 return false;
             }
@@ -184,7 +184,7 @@ trait HasRole
     protected function getStoredRole($role)
     {
         if (is_string($role)) {
-            return app(Role::class)->findByName($role);
+            return Role::findByName($role);
         }
         return $role;
     }
