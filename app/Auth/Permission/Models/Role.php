@@ -11,7 +11,9 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Role extends Model
 {
-    use FindByName;
+    use FindByName {
+        findByName as findWithName;
+    }
     use HasPermissions;
 
     public $incrementing = false;
@@ -52,7 +54,7 @@ class Role extends Model
     public static function findByName($name)
     {
         try {
-            return FindByName::findByName($name);
+            return static::findWithName($name);
         } catch (ModelNotFoundException $e) {
             throw new RoleNotExistsException("Role {$name} not exists", 0, $e);
         }

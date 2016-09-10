@@ -11,7 +11,9 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Permission extends Model
 {
-    use FindByName;
+    use FindByName {
+        findByName as findWithName;
+    }
     use Cacheable;
 
     public $incrementing = false;
@@ -30,10 +32,15 @@ class Permission extends Model
         return $this->belongsToMany(Role::class, 'role_permission');
     }
 
+    /**
+     * @param string $name
+     *
+     * @return static
+     */
     public static function findByName($name)
     {
         try {
-            return FindByName::findByName($name);
+            return static::findWithName($name);
         } catch (ModelNotFoundException $e) {
             throw new PermissionNotExistsException("Role {$name} not exists", 0, $e);
         }
